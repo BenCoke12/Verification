@@ -34,6 +34,8 @@ firstChoiceSneaker img =
     let scores = classifier img in
     forall class . class != sneaker => scores ! sneaker > scores ! class
 
+--If the image is valid and the first choice of class is sneaker then the score for sandal should be
+--greater than the score for pullover
 @property
 pulloverLowScore : Bool
 pulloverLowScore = forall img . (validImage img and firstChoiceSneaker img) => score img sandal > score img pullover
